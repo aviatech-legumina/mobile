@@ -1,9 +1,24 @@
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+import { FontAwesome, FontAwesome5, Ionicons } from '@expo/vector-icons';
+// import other icon families here
 
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { type IconProps } from '@expo/vector-icons/build/createIconSet';
-import { type ComponentProps } from 'react';
+export const TabBarIcon = ({ name, color, iconFamily }: {
+  name: any;
+  color: string;
+  iconFamily: 'Ionicons' | 'FontAwesome' | 'FontAwesome5'; // add other icon families here
 
-export function TabBarIcon({ style, ...rest }: IconProps<ComponentProps<typeof Ionicons>['name']>) {
-  return <Ionicons size={28} style={[{ marginBottom: -3 }, style]} {...rest} />;
-}
+}) => {
+  let IconComponent;
+  switch (iconFamily) {
+    case 'FontAwesome':
+      IconComponent = FontAwesome;
+      break;
+    case 'FontAwesome5':
+      IconComponent = FontAwesome5;
+      break;
+    default:
+      IconComponent = Ionicons;
+      break;
+  }
+
+  return <IconComponent name={name} size={32} color={color} style={[{ marginBottom: -20 }]} />;
+};

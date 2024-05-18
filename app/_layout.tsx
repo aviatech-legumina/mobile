@@ -25,9 +25,10 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
+  console.log(colorScheme)
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={DarkTheme/* colorScheme === 'dark' ? DarkTheme : DefaultTheme */}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
