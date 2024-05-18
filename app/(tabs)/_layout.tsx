@@ -2,7 +2,6 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { darken } from 'polished';
 
@@ -32,9 +31,9 @@ export default function TabLayout() {
     >
 
       <Tabs.Screen
-        name="explore"
+        name="fleet"
         options={{
-          title: 'Explore',
+          title: 'Fleet',
           tabBarIcon: ({ color }) => (
             <TabBarIcon name={'clipboard-list'} color={color} iconFamily="FontAwesome5" />
           ),
@@ -50,9 +49,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="fleet"
+        name="explore"
         options={{
-          title: 'Fleet',
+          title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'user-circle' : 'user-circle-o'} color={color} iconFamily="FontAwesome" />
           ),
